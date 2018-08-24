@@ -1,11 +1,16 @@
 {
-	"name": "m4tthumphrey/php-gitlab-api",
+	"name": "ShellrentSrl/php-gitlab-api",
 	"type": "library",
 	"description": "GitLab API client",
-	"homepage": "https://github.com/m4tthumphrey/php-gitlab-api",
+	"homepage": "https://github.com/ShellrentSrl/php-gitlab-api",
 	"keywords": ["gitlab", "api"],
 	"license": "MIT",
 	"authors": [
+		{
+			"name": "Shellrent Srl",
+			"email": "sviluppo@shellrent.com",
+			"homepage": "https://shellrent.com"
+		},
 		{
 			"name": "Matt Humphrey",
 			"homepage": "http://m4tt.io"
