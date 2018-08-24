@@ -7,13 +7,14 @@ use Gitlab\Client;
  *
  * @property-read int $id
  * @property-read int $iid
- * @property-read int $project_id,
+ * @property-read int $project_id
  * @property-read string $title
  * @property-read string $description
  * @property-read array $labels
  * @property-read bool $closed
  * @property-read string $updated_at
  * @property-read string $created_at
+ * @property-read string $closed_at
  * @property-read string $state
  * @property-read User $assignee
  * @property-read User $author
@@ -38,6 +39,7 @@ class Issue extends AbstractModel implements Noteable
         'closed',
         'updated_at',
         'created_at',
+        'closed_at',
         'project',
         'state'
     );

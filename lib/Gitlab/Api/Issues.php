@@ -11,6 +11,10 @@ class Issues extends AbstractApi
      *                            No+Label lists all issues with no labels.
      *     @var string $milestone The milestone title.
      *     @var string scope      Return issues for the given scope: created-by-me, assigned-to-me or all. Defaults to created-by-me
+     *     @var string created_after	Return issues created after the given datetime
+     *     @var string updated_after	Return issues updated after the given datetime
+     *     @var string created_before	Return issues created before the given datetime
+     *     @var string updated_before	Return issues updated before the given datetime
      *     @var int[]  $iids      Return only the issues having the given iid.
      *     @var string $order_by  Return requests ordered by created_at or updated_at fields. Default is created_at.
      *     @var string $sort      Return requests sorted in asc or desc order. Default is desc.
@@ -28,6 +32,10 @@ class Issues extends AbstractApi
         ;
         $resolver->setDefined('labels');
         $resolver->setDefined('milestone');
+        $resolver->setDefined('created_after');
+        $resolver->setDefined('updated_after');
+        $resolver->setDefined('created_before');
+        $resolver->setDefined('updated_before');
         $resolver->setDefined('iids')
             ->setAllowedTypes('iids', 'array')
             ->setAllowedValues('iids', function (array $value) {
