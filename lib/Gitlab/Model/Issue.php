@@ -16,6 +16,7 @@ use Gitlab\Client;
  * @property-read string $created_at
  * @property-read string $closed_at
  * @property-read string $state
+ * @property-read string $web_url
  * @property-read User $assignee
  * @property-read User $author
  * @property-read Milestone $milestone
@@ -41,7 +42,8 @@ class Issue extends AbstractModel implements Noteable
         'created_at',
         'closed_at',
         'project',
-        'state'
+        'state',
+		'web_url'
     );
 
     /**
