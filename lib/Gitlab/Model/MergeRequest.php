@@ -24,6 +24,7 @@ use Gitlab\Client;
  * @property-read User $assignee
  * @property-read Project $project
  * @property-read Milestone $milestone
+ * @property-read string $web_url
  * @property-read File[] $files
  */
 class MergeRequest extends AbstractModel implements Noteable
@@ -51,6 +52,7 @@ class MergeRequest extends AbstractModel implements Noteable
         'downvotes',
         'labels',
         'milestone',
+        'web_url',
         'files'
     );
 
