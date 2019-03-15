@@ -807,6 +807,33 @@ class Project extends AbstractModel
     }
 
     /**
+     * @param string $name The name of a tag
+     * @param string $ref Create tag using commit SHA, another tag name, or branch name.
+     * @param string $message (optional) - Creates annotated tag
+     * @param string $release_description (optional) - Add release notes to the git tag and store it in the GitLab database
+     * @return Tag
+     */
+    public function createTag( $name, $ref, $message = '', $release_description = '' )
+    {
+		$params = [
+			'tag_name' => $name,
+			'ref' => $ref,
+		];
+		
+		if( $message ) {
+			$params['message'] = $message;
+		}
+		
+		if( $message ) {
+			$params['release_description'] = $release_description;
+		}
+		
+        $data = $this->client->tags()->create( $this->id, $params );
+		
+        return Tag::fromArray( $this->getClient(), $this, $data );
+    }
+
+    /**
      * @param int $iid
      * @return Issue
      */
