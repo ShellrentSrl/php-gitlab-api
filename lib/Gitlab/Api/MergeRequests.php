@@ -93,7 +93,7 @@ class MergeRequests extends AbstractApi
      * @param string $description
      * @return mixed
      */
-    public function create($project_id, $source, $target, $title, $assignee = null, $target_project_id = null, $description = null)
+    public function create($project_id, $source, $target, $title, $assignee = null, $target_project_id = null, $description = null, $remove_source_branch = false)
     {
         return $this->post($this->getProjectPath($project_id, 'merge_requests'), array(
             'source_branch' => $source,
@@ -101,7 +101,8 @@ class MergeRequests extends AbstractApi
             'title' => $title,
             'assignee_id' => $assignee,
             'target_project_id' => $target_project_id,
-            'description' => $description
+            'description' => $description,
+            'remove_source_branch' => $remove_source_branch ? true : false,
         ));
     }
 
