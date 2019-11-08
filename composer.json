@@ -1,5 +1,5 @@
 {
-	"name": "ShellrentSrl/php-gitlab-api",
+	"name": "shellrentsrl/php-gitlab-api",
 	"type": "library",
 	"description": "GitLab API client",
 	"homepage": "https://github.com/ShellrentSrl/php-gitlab-api",
