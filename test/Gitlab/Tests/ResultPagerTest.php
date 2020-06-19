@@ -9,8 +9,10 @@ use Gitlab\ResultPager;
 use GuzzleHttp\Psr7\Response;
 use function GuzzleHttp\Psr7\stream_for;
 use Http\Client\Common\HttpMethodsClient;
+use Http\Client\Common\HttpMethodsClientInterface;
+use PHPUnit\Framework\TestCase;
 
-class ResultPagerTest extends \PHPUnit_Framework_TestCase
+class ResultPagerTest extends TestCase
 {
     public function testFetch()
     {
@@ -20,6 +22,7 @@ class ResultPagerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $api = $this->getMockBuilder(ApiInterface::class)
+            ->disableOriginalConstructor()
             ->setMethods(['__construct', 'all'])
             ->getMock()
         ;
@@ -69,10 +72,14 @@ class ResultPagerTest extends \PHPUnit_Framework_TestCase
             ))
         ;
 
-        $httpClient = $this->getMockBuilder(HttpMethodsClient::class)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
+        if (interface_exists(HttpMethodsClientInterface::class)) {
+            $httpClient = $this->createMock(HttpMethodsClientInterface::class);
+        } else {
+            $httpClient = $this->getMockBuilder(HttpMethodsClient::class)
+                ->disableOriginalConstructor()
+                ->getMock()
+            ;
+        }
 
         $httpClient->expects($this->exactly(2))
             ->method('get')
@@ -96,6 +103,7 @@ class ResultPagerTest extends \PHPUnit_Framework_TestCase
         ;
 
         $api = $this->getMockBuilder(ApiInterface::class)
+            ->disableOriginalConstructor()
             ->setMethods(['__construct', 'all'])
             ->getMock();
         $api->expects($this->exactly(1))
