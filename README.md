@@ -15,7 +15,7 @@ Installation
 Via [composer](https://getcomposer.org)
 
 ```bash
-composer require m4tthumphrey/php-gitlab-api php-http/guzzle6-adapter
+composer require shellrent/php-gitlab-api php-http/guzzle6-adapter
 ```
 
 Why `php-http/guzzle6-adapter`? We are decoupled from any HTTP messaging client with help by [HTTPlug](http://httplug.io).
