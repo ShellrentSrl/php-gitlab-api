@@ -1,5 +1,5 @@
 {
-	"name": "shellrentsrl/php-gitlab-api",
+	"name": "shellrent/php-gitlab-api",
 	"type": "library",
 	"description": "GitLab API client",
 	"homepage": "https://github.com/ShellrentSrl/php-gitlab-api",
@@ -7,9 +7,9 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Shellrent Srl",
+			"name": "Shellrent",
 			"email": "sviluppo@shellrent.com",
-			"homepage": "https://shellrent.com"
+			"homepage": "https://www.shellrent.com"
 		},
 		{
 			"name": "Matt Humphrey",
